@@ -4,120 +4,128 @@
   <title>Alchemy</title>
 
   <meta name="description" content="Digital Exchange" />
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"/> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 
-
-
- <!-- Global site tag (gtag.js) - Google Analytics -->  
- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-93900315-2"></script>
- <script>
-   window.dataLayer = window.dataLayer || [];
-   function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
- 
-   gtag('config', 'UA-93900315-2');
- </script>
- <!-- Global site tag (gtag.js) - Google Analytics -->
-
-  
   <!-- CSS  -->
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
+  <!--PRE-BID-->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <script async src="//www.googletagservices.com/tag/js/gpt.js"></script>
+  <script async src="//acdn.adnxs.com/prebid/not-for-prod/prebid.js"></script>
+        <script>
+            var div_1_sizes = [
+                [300, 250],
+                [300, 600]
+            ];
+            var div_2_sizes = [
+                [728, 90],
+                [970, 250]
+            ];
+            var PREBID_TIMEOUT = 1000;
+            var FAILSAFE_TIMEOUT = 3000;
+
+            var adUnits = [
+                {
+                    code: '/19968336/header-bid-tag-0',
+                    mediaTypes: {
+                        banner: {
+                            sizes: div_1_sizes
+                        }
+                    },
+                    bids: [{
+                        bidder: 'appnexus',
+                        params: {
+                            placementId: 13144370
+                        }
+                    }]
+                },
+                {
+                    code: '/19968336/header-bid-tag-1',
+                    mediaTypes: {
+                        banner: {
+                            sizes: div_2_sizes
+                        }
+                    },
+                    bids: [{
+                        bidder: 'appnexus',
+                        params: {
+                            placementId: 13144370
+                        }
+                    }]
+                }
+            ];
+
+            // ======== DO NOT EDIT BELOW THIS LINE =========== //
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+            googletag.cmd.push(function() {
+                googletag.pubads().disableInitialLoad();
+            });
+
+            var pbjs = pbjs || {};
+            pbjs.que = pbjs.que || [];
+
+            pbjs.que.push(function() {
+                pbjs.addAdUnits(adUnits);
+                pbjs.requestBids({
+                    bidsBackHandler: initAdserver,
+                    timeout: PREBID_TIMEOUT
+                });
+            });
+
+            function initAdserver() {
+                if (pbjs.initAdserverSet) return;
+                pbjs.initAdserverSet = true;
+                googletag.cmd.push(function() {
+                    pbjs.que.push(function() {
+                        pbjs.setTargetingForGPTAsync();
+                        googletag.pubads().refresh();
+                    });
+                });
+            }
+            // in case PBJS doesn't load
+            setTimeout(function() {
+                initAdserver();
+            }, FAILSAFE_TIMEOUT);
+
+            googletag.cmd.push(function() {
+                googletag.defineSlot('/19968336/header-bid-tag-0', div_1_sizes, 'div-1').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+            googletag.cmd.push(function() {
+                googletag.defineSlot('/19968336/header-bid-tag-1', div_2_sizes, 'div-2').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+
+        </script>
 </head>
 
-    <body>
-      <div class="background">
-        <div class="multi-color">
-          <div class="white-back">
-        <div class="container">
+<body>
+  <h2>Basic Prebid.js Example</h2>
+        <h5>Div-1</h5>
+        <div id='div-1'>
+            <script type='text/javascript'>
+                googletag.cmd.push(function() {
+                    googletag.display('div-1');
+                });
 
-          
-<!-- ///////////////////////////////   LOGO / INTRO  /////////////////////////////////////////-->
-
-          <!-- <div class="logo">
-            <img src="https://res.cloudinary.com/mselbekk-com/image/upload/v1594666020/LOGO_yuthop.png" alt="Logo"/>
-          </div> -->
-          <div class="intro first">
-            <div class="title">
-            <!-- <h1>Alchemy</h1> -->
-            <img class="logo-a" src="https://res.cloudinary.com/mselbekk-com/image/upload/v1611974104/dd_qxkdtk.png"/>
-            </div>
-            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
-          </div>
-
-
-<!-- ///////////////////////////////   RECENT PROJECTS  /////////////////////////////////////////-->
-
-
-          <div class="recent-projects">
-            <!-- <h2>Recent Side Projects</h2> -->
-            <div class="projects">
-              <div class="project-1" id="project-one">
-              </div>
-              <div class="project-3" id="project-three">
-                
-
-              </div>
-            </a>
-            </div>
-          </div>
-
-
-
-<!-- ///////////////////////////////   SKILLS  /////////////////////////////////////////-->
-
-
-
-
-<!-- 
-          <div class="contact">
-            <div class="circle big"></div>
-            <div class="form" id="form">
-              <h2>Contact Me</h2>
-                <form name="submit-to-google-sheet" id="my-form">
-                  <input id="name" name="name" type="text" placeholder="Name">
-                  <input id="email" name="email" type="email" placeholder="Email" required>
-                  <textarea id="message" placeholder="Message" type="message" type="email" name="message"></textarea>
-                  <button type="submit">Send</button>
-                </form> 
-            </div>
-            <div class="social">
-              <div class="profile-pic">
-                <img src="https://res.cloudinary.com/mselbekk-com/image/upload/v1594666664/me-circle-2_x4awvw.png" alt="Profile Picture of Morgan"/>
-              </div>
-              <a href="https://www.linkedin.com/in/morgan-christian-selbekk-a0617738/" target="blank"><button class="linkedin">
-                <img src="https://res.cloudinary.com/mselbekk-com/image/upload/v1594666188/Vector_ce5tuf.svg" alt="LinkedIn Icon"/>
-                <span class="btn-txt">LinkedIn</span>
-              </button></a>
-              <a href="https://twitter.com/mselbekk1" target="blank"><button class="twitter">
-                <img src="https://res.cloudinary.com/mselbekk-com/image/upload/v1594666188/Vector_2_jrjqdc.svg" alt="Twitter Icon"/>
-                <span class="btn-txt">Twitter</span>
-              </button></a>
-              <a href="https://res.cloudinary.com/mselbekk-com/image/upload/v1602933197/Group_8_2_tg4jaf.pdf" target="_blank" title="CV" rel="noopener"><button class="download">
-                <img class="download-small" src="https://res.cloudinary.com/mselbekk-com/image/upload/v1594666188/Vector_1_smfppu.svg" alt="Download CV Icon"/>
-                <span class="btn-txt">CV</span>
-              </button></a>
-            </div>
-          </div> -->
-
-
+            </script>
         </div>
-      </div>
-    </div>
-  </div>
 
+        <br>
 
-    <!--  Scripts-->
+        <h5>Div-2</h5>
+        <div id='div-2'>
+            <script type='text/javascript'>
+                googletag.cmd.push(function() {
+                    googletag.display('div-2');
+                });
 
-    <!-- <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
-    <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
-    <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-    <script src="/js/script.js"></script>
-    <script src="/js/form.js"></script>
-
+            </script>
+        </div>
 </body>
 </html>
